@@ -1,23 +1,20 @@
 from re import L
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from django.forms import modelform_factory
-from .models import Skills
+from .models import Skill
 from .forms import SkillModelForm
 
-def skill(request, id):
+def list_skills_view(request, id):
 
     skill_list = []
-
-    skills = get_object_or_404(Skills, pk=id)
-
     name = request.user.username
 
-    for skill in Skills.objects.all():
+    for skill in Skill.objects.all():
         if skill.user == request.user:
             skill_list.append(skill)
 
 
-    return render(request, "skill_check/skill.html", {"name": name, "skills": skill_list})
+    return render(request, "skill_matrix/list_skills.html", {"name": name, "skills": skill_list})
 
 #def user_list(request):
 #    return render(request, "skill_check/user_list.html", {"users": User.objects.all()})
@@ -29,4 +26,4 @@ def skill_create_view(request, *args, **kwargs):
         obj.user = request.user
         obj.save()
         form = SkillModelForm()
-    return render(request, "skill_check/skill_form.html", {"form": form}) # 200
+    return render(request, "skill_matrix/skill_form.html", {"form": form}) # 200
