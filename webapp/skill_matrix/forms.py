@@ -1,9 +1,9 @@
 from django import forms
-from .models import Skills
+from .models import Skill
 
 class SkillModelForm(forms.ModelForm):
     class Meta:
-        model = Skills
+        model = Skill
         fields = [
             'subject',
             'current_level',
