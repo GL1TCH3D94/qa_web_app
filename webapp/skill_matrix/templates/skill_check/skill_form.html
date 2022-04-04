@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}New Skill{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-4"><h1>Add a new Skill</h1></div>                      
+        </div>
+    </div>
+    <form method="post">
+        <table>
+            <div class="container">
+                <div class="fieldWrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12"><div class="p-3"></div>                     
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row col-sm-12 align-items-center justify-content-center">
+                            <div class="col-sm-2"><label for="{{ form.subject.id_for_label }}">Subject:</label></div>
+                            <div class="col-sm-2">{{ form.subject }}</div>
+                            <div class="col-sm-2">{{ form.subject.errors }}</div>                        
+                        </div>
+                    </div>
+                    <div class="col-sm-12"><div class="p-1"></div> 
+                    <div class="container">
+                        <div class="row col-sm-12 align-items-center justify-content-center">
+                            <div class="col-sm-2"><label for="{{ form.current_level.id_for_label }}">current_level:</label></div>                        
+                            <div class="col-sm-2">{{ form.current_level }}</div>
+                            <div class="col-sm-2">{{ form.current_level.errors }}</div> 
+                        </div>
+                    </div>
+                    <div class="col-sm-12"><div class="p-1"></div>
+                    <div class="container">
+                        <div class="row col-sm-12 align-items-center justify-content-center">
+                            <div class="col-sm-2"><label for="{{ form.required_level.id_for_label }}">required_level:</label></div>                        
+                            <div class="col-sm-2">{{ form.required_level }}</div>
+                            <div class="col-sm-2">{{ form.required_level.errors }}</div> 
+                        </div>
+                    </div>
+                    <div class="col-sm-12"><div class="p-1"></div>
+                    <div class="container">
+                        <div class="row col-sm-12 justify-content-center">
+                            {% csrf_token %}                       
+                            <div class="col-sm-2"><button class="col-sm-12" type="submit">Add Record</button></div>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        </table>
+    </form>
+    {{ form.non_field_errors }}
+    
+{% endblock %}
+

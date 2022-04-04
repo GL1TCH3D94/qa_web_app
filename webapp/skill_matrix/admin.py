@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Skills, Subject
+
+admin.site.register(Subject)
+admin.site.register(Skills)

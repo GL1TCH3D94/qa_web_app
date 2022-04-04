@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Skills{% endblock %}
+
+{% block content %}
+
+    <h2>Skills List page</h2>
+
+    <h3>User Name: {{name}}</h3>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Current Score</th>
+            <th scope="col">Required Score</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for skill in skills %}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{skill.subject}}</td>
+                <td>{{skill.current_level}}</td>
+                <td>{{skill.required_level}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
