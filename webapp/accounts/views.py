@@ -21,7 +21,7 @@ def register_view(request):
             return redirect("/")
         else:
             request.session['register_error'] = 1
-    return render(request, "accounts/register.html", {"form": form})
+    return render(request, "accounts/register.html", {"form": form, "user": request.user})
 
 
 def login_view(request):
@@ -35,8 +35,8 @@ def login_view(request):
             return redirect("/")
         else:
             request.session['invalid_user'] = 1
-    return render(request, "accounts/login.html", {"form": form})
+    return render(request, "accounts/login.html", {"form": form, "user": request.user})
 
 def logout_view(request):
     logout(request)
-    return render(request, "accounts/logout.html")
+    return render(request, "accounts/logout.html", {"user": request.user})

@@ -2,7 +2,7 @@ from re import L
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from django.forms import modelform_factory
 from .models import Skill
-from .forms import SkillModelForm
+from .forms import SkillModelForm, SubjectModelForm
 
 def list_skills_view(request):
 
@@ -14,7 +14,7 @@ def list_skills_view(request):
             skill_list.append(skill)
 
 
-    return render(request, "skill_matrix/list_skills.html", {"name": name, "skills": skill_list})
+    return render(request, "skill_matrix/list_skills.html", {"name": name, "skills": skill_list, "user": request.user})
 
 #def user_list(request):
 #    return render(request, "skill_check/user_list.html", {"users": User.objects.all()})
@@ -26,4 +26,13 @@ def skill_create_view(request, *args, **kwargs):
         obj.user = request.user
         obj.save()
         form = SkillModelForm()
-    return render(request, "skill_matrix/skill_form.html", {"form": form}) # 200
+    return render(request, "skill_matrix/skill_form.html", {"form": form, "user": request.user}) # 200
+
+def subject_create_view(request, *args, **kwargs):
+    form = SubjectModelForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        form = SubjectModelForm()
+    return render(request, "skill_matrix/subject_form.html", {"form": form, "user": request.user}) 

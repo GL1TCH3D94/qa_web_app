@@ -2,25 +2,25 @@
 
 {% block title %}Welcome{% endblock %}
 
+{% block currentprofile %}{{user}}{% endblock %}
+
 {% block content %}
 
 <div class="mx-auto" style="width: 30%;">
-  <h1>Homepage header test</h1>
-    <p>This is the demo application. (paragraph test)
+  <h1 class="text-center">Welcome to the skills matrix</h1>
+    <p class="text-center">This is the demo application. (paragraph test)
     </p>
-    <h2>Header 2 test</h2>
+    <h2 class="text-center">Available functions</h2>
     <ul>
+      <div class="row" style="height:50px;"></div>
         <li class="nav-item ">
-            <a class="nav-link " style="color: #000000" href="fill">User List</a>
+            <a class="nav-link text-center" style="color: #000000">Add skills to your profile</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " style="color: #000000" href="{% url 'skill' %}">Skills</a>
+            <a class="nav-link text-center" style="color: #000000">Create new subjects with skill goals for your team</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " style="color: #000000" href="fill">New User</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link " style="color: #000000">{{user}}</a>
+            <a class="nav-link text-center" style="color: #000000">Move around a fully integrated user authorization system</a>
           </li>
     </ul> 
 </div>

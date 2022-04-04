@@ -14,7 +14,6 @@
             Skills Matrix
           </div>
           <ul class="sidebar-navigation">
-            <li class="header">Navigation</li>
             <li>
               <a href="{% url 'home' %}">
                 <i class="fa fa-home" aria-hidden="true"></i> Homepage
@@ -27,10 +26,15 @@
             </li>
             <li>
               <a href="{% url 'add_skill' %}">
-                <i class="fa fa-users" aria-hidden="true"></i> Add Skill
+                <i class="fa fa-solid fa-plus" aria-hidden="true"></i> Add Skill
               </a>
             </li>
-            <li class="header">Current User</li>
+            <li>
+              <a href="{% url 'add_subject' %}">
+                <i class="fa fa-solid fa-plus" aria-hidden="true"></i> Add Subject
+              </a>
+            </li>
+            <li class="header">{% block currentprofile %}{% endblock %}</li>
             <li>
               <a href="{% url 'login' %}">
                 <i class="fa fa-users" aria-hidden="true"></i> Login

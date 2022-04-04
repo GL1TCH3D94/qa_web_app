@@ -16,7 +16,7 @@
   .sidebar-logo {
     padding: 10px 15px 10px 30px;
     font-size: 20px;
-    background-color: #151515;
+    background-color: #3a3a3a;
   }
   
   .sidebar-navigation {
@@ -70,9 +70,9 @@
   }
   
   .sidebar-navigation .header {
-    font-size: 12px;
+    font-size: 15px;
     text-transform: uppercase;
-    background-color: #151515;
+    background-color: #3a3a3a;
     padding: 10px 15px 10px 30px;
   }
   

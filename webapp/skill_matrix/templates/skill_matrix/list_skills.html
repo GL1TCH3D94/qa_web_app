@@ -2,13 +2,13 @@
 
 {% block title %}Skills{% endblock %}
 
+{% block currentprofile %}{{user}}{% endblock %}
+
 {% block content %}
 
 <div class="mx-auto" style="width: 60%;">
-  <h2>Skills List page</h2>
-
-    <h3>User Name: {{name}}</h3>
-
+    <h3>Current skills for user: {{name}}</h3>
+    <div class="row" style="height:10px;"></div>
     <table class="table">
         <thead>
           <tr>
