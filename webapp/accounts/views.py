@@ -34,10 +34,7 @@ def login_view(request):
             login(request, user)
             return redirect("/")
         else:
-            #attempt = request.session.get("attempt") or 0
-            #request.session['attempt'] = attempt + 1
             request.session['invalid_user'] = 1
-            #return render(request, "forms.html", {"form": form, "invalid_user": True})
     return render(request, "accounts/login.html", {"form": form})
 
 def logout_view(request):
