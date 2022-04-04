@@ -4,7 +4,7 @@ from django.forms import modelform_factory
 from .models import Skill
 from .forms import SkillModelForm
 
-def list_skills_view(request, id):
+def list_skills_view(request):
 
     skill_list = []
     name = request.user.username
