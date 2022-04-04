@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h1>Homepage header test</h1>
+    <p>This is the demo application. (paragraph test)
+    </p>
+    <h2>Header 2 test</h2>
+    <ul>
+        <li class="nav-item ">
+            <a class="nav-link " style="color: #000000" href="fill">User List</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " style="color: #000000" href="{% url 'skill' 1 %}">Skills</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " style="color: #000000" href="fill">New User</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " style="color: #000000">{{user1}}</a>
+          </li>
+    </ul> 
+{% endblock %}
