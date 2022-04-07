@@ -9,6 +9,7 @@ class RegisterForm(forms.Form):
     email = forms.EmailField()
     password1 = forms.CharField(label = "Password", widget = forms.PasswordInput)
     password2 = forms.CharField(label = "Confirm Password", widget = forms.PasswordInput)
+    is_staff = forms.BooleanField(required=False, initial=False)
 
     def clean_username(self):
         username = self.cleaned_data.get("username")

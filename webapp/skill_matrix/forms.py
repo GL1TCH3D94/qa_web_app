@@ -11,7 +11,6 @@ class SkillModelForm(forms.ModelForm):
             'last_updated',
             'user',
         ]
-
     
     def clean_content(self):
         data = self.cleaned_data.get('content')
@@ -27,10 +26,10 @@ class SubjectModelForm(forms.ModelForm):
             'description',
             'field',
         ]
-
     
-    def clean_content(self):
-        data = self.cleaned_data.get('content')
-        if len(data) < 4:
-            raise forms.ValidationError("This is not long enough")
-        return data
+    def clean_name(self):
+        name = self.cleaned_data.get("name")
+        qs = Subject.objects.filter(name__iexact=name)
+        if qs.exists():
+            raise forms.ValidationError("This subject already exists.")
+        return name

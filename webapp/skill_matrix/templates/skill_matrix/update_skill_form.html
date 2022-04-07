@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}New Skill{% endblock %}
+{% block title %}Update Skill{% endblock %}
 
 {% block currentprofile %}{{user}}{% endblock %}
 
 {% block content %}
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-4"><h1>Add a new Skill</h1></div>                      
+            <div class="col-sm-4"><h1>Update a Skill</h1></div>                      
         </div>
     </div>
     <form method="post">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="container">
                         <div class="row col-sm-12 align-items-center justify-content-center">
-                            <div class="col-sm-2"><label for="{{ form.subject.id_for_label }}">Subject:</label></div>
+                            <div class="col-sm-2"><label for="{{ form.subject.id_for_label }}">Subject: </label></div>
                             <div class="col-sm-2">{{ form.subject }}</div>
                             <div class="col-sm-2">{{ form.subject.errors }}</div>                        
                         </div>
@@ -54,7 +54,7 @@
                     <div class="container">
                         <div class="row col-sm-12 justify-content-center">
                             {% csrf_token %}                       
-                            <div class="col-sm-2"><button class="btn btn-md btn-success" type="submit">Add Skill</button></div>
+                            <div class="col-sm-2"><button class="btn btn-md btn-success" type="submit">Update Skill</button></div>
                         </div>
                     </div>                 
                 </div>

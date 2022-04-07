@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Skill{% endblock %}
+
+{% block currentprofile %}{{user}}{% endblock %}
+
+{% block content %}
+
+<div class="row" style="height:50px;"></div>
+    <div class="mx-auto" style="width: 30%;">
+        <h1 class="text-center">Are you sure you want to delete this skill?</h1>        
+    </div>
+    <div class="row" style="height:50px;"></div>
+    <div class="col-sm-12 mx-auto" style="width: 8%;"><a href="{% url 'deleted' skill.id %}"><button class="btn btn-lg btn-danger" type="submit">Delete Skill</button></a></div>
+    
+{% endblock %}
+

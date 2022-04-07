@@ -25,6 +25,11 @@
               </a>
             </li>
             <li>
+              <a href="{% url 'subject' %}">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Subjects
+              </a>
+            </li>
+            <li>
               <a href="{% url 'add_skill' %}">
                 <i class="fa fa-solid fa-plus" aria-hidden="true"></i> Add Skill
               </a>
@@ -32,6 +37,11 @@
             <li>
               <a href="{% url 'add_subject' %}">
                 <i class="fa fa-solid fa-plus" aria-hidden="true"></i> Add Subject
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'master' %}">
+                <i class="fa fa-solid fa-plus" aria-hidden="true"></i> Master CRUD
               </a>
             </li>
             <li class="header">{% block currentprofile %}{% endblock %}</li>

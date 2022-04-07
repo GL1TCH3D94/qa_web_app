@@ -23,12 +23,39 @@
             {% for skill in skills %}
             <tr>
                 <th scope="row">{{skill.id}}</th>
+                <td>{{skill.user}}</td>
                 <td>{{skill.subject}}</td>
                 <td>{{skill.current_level}}</td>
                 <td>{{skill.required_level}}</td>
                 <td>{{skill.last_updated}}</td>
                 <td class="col-sm-2"><a href="{% url 'update_skill' skill.id %}"><button class="btn btn-sm btn-success" type="submit">Update Skill</button></a></td>
                 <td class="col-sm-2"><a href="{% url 'delete_skill' skill.id %}"><button class="btn btn-sm btn-danger" type="submit">Delete Skill</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+<div class="mx-auto" style="width: 60%;">
+    <h3>Current subjects:</h3>
+    <div class="row" style="height:10px;"></div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">PK</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Description</th>
+            <th scope="col">Field</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for subject in subjects %}
+            <tr>
+                <th scope="row">{{subject.id}}</th>
+                <td>{{subject.name}}</td>
+                <td>{{subject.description}}</td>
+                <td>{{subject.field}}</td>
+                <td class="col-sm-2"><a href="{% url 'update_subject' subject.id %}"><button class="btn btn-sm btn-success" type="submit">Update Subject</button></a></td>
+                <td class="col-sm-2"><a href="{% url 'delete_subject' subject.id %}"><button class="btn btn-sm btn-danger" type="submit">Delete Subject</button></a></td>
             </tr>
             {% endfor %}
         </tbody>
