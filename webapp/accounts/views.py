@@ -42,7 +42,12 @@ def login_view(request):
             return redirect("/")
         else:
             request.session['invalid_user'] = 1
-    return render(request, "accounts/login.html", {"form": form, "user": request.user})
+    if request.session['error']:
+        error_message = request.session['error']
+        request.session['error'] = None
+    else:
+        error_message = ''        
+    return render(request, "accounts/login.html", {"form": form, "user": request.user, "error" : error_message})
 
 def logout_view(request):
     logout(request)

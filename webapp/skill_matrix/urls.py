@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .import views
+from . import views
 
 urlpatterns = [
     path('master', views.master_view, name="master"),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('s_deleted/<int:id>', views.s_delete_view, name="s_deleted"),
     path('add_skill', views.skill_create_view, name="add_skill"),
     path('add_subject', views.subject_create_view, name="add_subject"),
+    path('invalid_user', views.invalid_user_view, name="invalid_user"),
 ]
