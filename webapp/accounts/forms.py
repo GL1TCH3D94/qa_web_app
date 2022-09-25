@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django import forms
+from django.contrib.auth.password_validation import validate_password, get_default_password_validators
 
 User = get_user_model()
 
@@ -11,11 +12,17 @@ class RegisterForm(forms.Form):
     password2 = forms.CharField(label = "Confirm Password", widget = forms.PasswordInput)
     is_staff = forms.BooleanField(required=False, initial=False)
 
+    def clean_password1(self):
+        password1 = self.cleaned_data.get("password1")
+        if validate_password(password1, None, get_default_password_validators()) is not None:
+            raise forms.ValidationError("This password is invalid")
+        return password1
+
     def clean_username(self):
         username = self.cleaned_data.get("username")
         qs = User.objects.filter(username__iexact=username)
         if qs.exists():
-            raise forms.ValidationError("This is an invalid username.")
+            raise forms.ValidationError("This is an username already exists.")
         return username
 
     def clean_email(self):
